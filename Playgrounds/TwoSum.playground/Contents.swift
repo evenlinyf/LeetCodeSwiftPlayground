@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 /**
  给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
 
@@ -74,7 +75,23 @@ func twoSumIJ(_ nums: [Int], _ target: Int) -> [Int] {
     return [0]
 }
 
+func twoSumDic(_ nums: [Int], _ target: Int) -> [Int] {
+    var dic: [Int: Int] = [:]
+    for i in 0..<nums.count {
+        let num = nums[i]
+        let value = target - num
+        if let matchedIndex = dic[value] {
+            return [matchedIndex, i]
+        } else {
+            dic[num] = i
+        }
+    }
+    return [0]
+}
 
 twoSum(nums: nums, target: target)
 
 twoSumIJ(nums, target)
+
+twoSumDic(nums, target)
+
