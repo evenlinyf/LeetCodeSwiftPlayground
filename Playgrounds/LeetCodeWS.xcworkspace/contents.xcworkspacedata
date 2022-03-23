@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:LeetCodeImp"
+      name = "LeetCodeImp">
+      <FileRef
+         location = "group:LC1-TwoSum.playground">
+      </FileRef>
+      <FileRef
+         location = "group:LC2-AddTwoNumbers.playground">
+      </FileRef>
+      <FileRef
+         location = "group:LC3-Longest Substring Without Repeating Characters.playground">
+      </FileRef>
+      <FileRef
+         location = "group:LC4-Median of Two Sorted Arrays.playground">
+      </FileRef>
+      <FileRef
+         location = "group:LC5- Longest Palindromic Substring.playground">
+      </FileRef>
+      <FileRef
+         location = "group:LC6-ZigZagConversion.playground">
+      </FileRef>
+   </Group>
+</Workspace>
