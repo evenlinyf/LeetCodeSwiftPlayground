@@ -1,10 +1,43 @@
 import UIKit
 
-
 func convert(_ s: String, _ numRows: Int) -> String {
-    return ""
+    
+    guard numRows > 1 else {
+        return s
+    }
+    //每个L (payp)的长度
+    let length = numRows * 2 - 2
+//    var vArray: [[Int: String]] = []
+    
+    var i = 0
+    var dic: [Int: String] = [:]
+    
+    s.forEach { char in
+        //获取第几行
+        let row = i % length
+        if row < numRows {
+            dic[row] = (dic[row] ?? "") + String(char)
+        } else {
+            let theRow = length - row
+            dic[theRow] = (dic[theRow] ?? "") + String(char)
+        }
+        i += 1
+    }
+    print(dic)
+    var result = ""
+    for index in 0..<numRows {
+        if let value = dic[index] {
+            result += value
+        }
+    }
+    return result
 }
 
+convert("PAYPALISHIRING", 2)
+
+//1: 1 2: 2     3: 4    4: 6    5: 8
+//三行 012   3   456   7   8910
+//四行 0123   4   5   6789    10  11  12131415    16  17
 
 /**
  将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。
