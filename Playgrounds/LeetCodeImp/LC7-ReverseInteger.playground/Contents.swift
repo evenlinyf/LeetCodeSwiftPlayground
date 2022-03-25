@@ -1,6 +1,25 @@
 import UIKit
 
+//12301
 func reverse(_ x: Int) -> Int {
+    var num = x
+    var result = 0
+    while num != 0 {
+        result = result * 10 + num%10
+        num = num/10
+    }
+    let boundary = Int(pow(2.0, 31.0))
+    guard result >= (boundary * -1) && result < boundary else {
+        print("超出边界条件")
+        return 0
+    }
+    return result
+}
+
+reverse(-123)
+
+
+func reverseIntWithStringReverse(_ x: Int) -> Int {
     print("输入的整数 = \(x)")
     let isFu = x < 0
     var num = x
