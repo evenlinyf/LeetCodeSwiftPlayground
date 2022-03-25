@@ -30,10 +30,11 @@ func convert(_ s: String, _ numRows: Int) -> String {
             result += value
         }
     }
+    print(result)
     return result
 }
 
-convert("PAYPALISHIRING", 2)
+convert("PAYPALISHIRING", 4)
 
 //1: 1 2: 2     3: 4    4: 6    5: 8
 //三行 012   3   456   7   8910

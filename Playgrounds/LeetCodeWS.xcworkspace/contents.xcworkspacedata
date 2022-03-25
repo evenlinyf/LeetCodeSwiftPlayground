@@ -22,5 +22,8 @@
       <FileRef
          location = "group:LC6-ZigZagConversion.playground">
       </FileRef>
+      <FileRef
+         location = "group:LC7-ReverseInteger.playground">
+      </FileRef>
    </Group>
 </Workspace>
