@@ -42,24 +42,6 @@ class ListNode {
     }
 }
 
-//public ListNode add(ListNode l1, ListNode l2, int bit) {
-//    if (l1 == null && l2 == null && bit == 0) {
-//        return null;
-//    }
-//    int val = bit;
-//    if (l1 != null) {
-//        val += l1.val;
-//        l1 = l1.next;
-//    }
-//    if (l2 != null) {
-//        val += l2.val;
-//        l2 = l2.next;
-//    }
-//    ListNode node = new ListNode(val % 10);
-//    node.next = add(l1, l2, val / 10);
-//    return node;
-//}
-
 func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         if l1 == nil || l2 == nil {
             return l1 ?? l2
