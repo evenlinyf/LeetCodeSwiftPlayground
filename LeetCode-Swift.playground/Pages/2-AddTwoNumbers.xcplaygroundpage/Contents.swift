@@ -12,64 +12,85 @@ import UIKit
 
 //链表相加
 
-struct Node {
-    var number: Int
-}
-
-//342 + 465 = 807
-
-func addTwoNumbers(_ n1: Int, _ n2: Int) -> [Node]? {
+class ListNode {
+    var val: Int
+    var next: ListNode?
     
-    let num1 = toNodes(number: n1)
-    let num2 = toNodes(number: n2)
-    
-    var shouldUpgrade = false
-    
-    var theNumber = num1
-    if num1.count < num2.count {
-        theNumber = num2
+    init() {
+        self.val = 0
     }
     
-    var resultNumber: [Node] = []
+    convenience init(_ val: Int) {
+        self.init()
+        self.val = val
+    }
     
-    for index in 0..<theNumber.count {
-        let n1 = indexNode(index: index, number: num1)
-        let n2 = indexNode(index: index, number: num2)
-        var result = n1.number + n2.number
-        if shouldUpgrade {
-            result += 1
+    convenience init(_ val: Int, _ next: ListNode?) {
+        self.init()
+        self.val = val
+        self.next = next
+    }
+    
+    func description() -> String {
+        var node: ListNode? = self
+        var string = ""
+        while node?.next != nil {
+            string = String(node!.val) + string
+            node = node!.next
         }
-        shouldUpgrade = result > 9
-        resultNumber.append(Node(number: result%10))
+        return string
     }
-    
-    return resultNumber
 }
 
+//public ListNode add(ListNode l1, ListNode l2, int bit) {
+//    if (l1 == null && l2 == null && bit == 0) {
+//        return null;
+//    }
+//    int val = bit;
+//    if (l1 != null) {
+//        val += l1.val;
+//        l1 = l1.next;
+//    }
+//    if (l2 != null) {
+//        val += l2.val;
+//        l2 = l2.next;
+//    }
+//    ListNode node = new ListNode(val % 10);
+//    node.next = add(l1, l2, val / 10);
+//    return node;
+//}
 
-func toNodes(number: Int) -> [Node] {
-    var value = number
-    var nodes: [Node] = []
-    if number <= 0 {
-        return [Node(number: 0)]
-    }
-    while value > 0 {
-        let node = Node(number: value%10)
-        nodes.append(node)
-        value = value/10
-    }
-    print("number = \(number), nodes = \(nodes)")
-    return nodes
+func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        if l1 == nil || l2 == nil {
+            return l1 ?? l2
+        }
+        
+        var l1 = l1
+        var l2 = l2
+        
+        var carry: Int = 0
+        let node = ListNode()
+        var currentNode = node
+        
+        while l1 != nil || l2 != nil {
+            if l1 != nil {
+                carry += l1!.val
+                l1 = l1!.next
+            }
+            if l2 != nil {
+                carry += l2!.val
+                l2 = l2!.next
+            }
+            let nextNode = ListNode(carry%10)
+            carry /= 10
+            currentNode.next = nextNode
+            currentNode = currentNode.next!
+        }
+        
+        if carry > 0 {
+            currentNode.next = ListNode(carry%10)
+        }
+        
+        return node.next
 }
-
-func indexNode(index: Int, number: [Node]) -> Node {
-    guard index < number.count else {
-        return Node(number: 0)
-    }
-    return number[index]
-}
-
-addTwoNumbers(342, 464)
-addTwoNumbers(0, 0)
-addTwoNumbers(1024, 976)
 
