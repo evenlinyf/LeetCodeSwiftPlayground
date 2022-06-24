@@ -9,6 +9,6 @@
         <page name='6-ZigZagConversion'/>
         <page name='7-ReverseInteger'/>
         <page name='9-PanlindromeNumber'/>
-        <page name='206 Reverse Link'/>
+        <page name='206-reverse-linked-list'/>
     </pages>
 </playground>
