@@ -10,5 +10,6 @@
         <page name='7-ReverseInteger'/>
         <page name='9-PanlindromeNumber'/>
         <page name='206-reverse-linked-list'/>
+        <page name='24-SwapNodesInPairs'/>
     </pages>
 </playground>
