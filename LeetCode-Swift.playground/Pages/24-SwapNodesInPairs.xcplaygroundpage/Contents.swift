@@ -24,4 +24,20 @@ struct Solution {
         next.next = head
         return next
     }
+    
+    func swapPairsEnum(_ head: ListNode?) -> ListNode? {
+        guard let next = head?.next else {
+            return head
+        }
+        var head: ListNode? = head
+        var pre: ListNode?
+        while let one = head, let two = head?.next {
+            head = two.next
+            pre?.next = two
+            two.next = one
+            pre = one
+            pre?.next = head
+        }
+        return next
+    }
 }
