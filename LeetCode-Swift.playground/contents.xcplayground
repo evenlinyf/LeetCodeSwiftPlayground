@@ -12,5 +12,6 @@
         <page name='206-reverse-linked-list'/>
         <page name='24-SwapNodesInPairs'/>
         <page name='114-linked-list-cycle'/>
+        <page name='20-Valid-Parentheses'/>
     </pages>
 </playground>
