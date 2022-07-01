@@ -37,6 +37,19 @@ func isValid(_ s: String) -> Bool {
     return stack.isEmpty
 }
 
+//😂
+func isValidString(_ s: String) -> Bool {
+        guard s.count % 2 == 0 else { return false }
+        var str = s
+        while str.contains("[]") || str.contains("()") || str.contains("{}") {
+            str = str.replacingOccurrences(of: "[]", with: "").replacingOccurrences(of: "()", with: "").replacingOccurrences(of: "{}", with: "")
+        }
+        return str.count == 0
+}
+
+isValidString("[[]]]]")
+
+
 
 //isValid("[[(())]]")
 
@@ -44,3 +57,5 @@ isValid("[[]]")
 
 //isValid("{{}]]")
 //isValid("[]")
+
+
