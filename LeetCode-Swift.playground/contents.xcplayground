@@ -14,5 +14,7 @@
         <page name='114-linked-list-cycle'/>
         <page name='20-Valid-Parentheses'/>
         <page name='225-implement-stack-using-queues'/>
+        <page name='232-implement-queue-using-stacks'/>
+        <page name='703-KthLargest'/>
     </pages>
 </playground>
