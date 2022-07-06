@@ -16,5 +16,6 @@
         <page name='225-implement-stack-using-queues'/>
         <page name='232-implement-queue-using-stacks'/>
         <page name='703-KthLargest'/>
+        <page name='239-sliding-window-maximum'/>
     </pages>
 </playground>
