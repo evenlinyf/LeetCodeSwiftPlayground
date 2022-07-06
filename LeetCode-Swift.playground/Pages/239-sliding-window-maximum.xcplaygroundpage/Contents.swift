@@ -14,10 +14,6 @@
 
 import Foundation
 
-class SlidingWindowMaximum {
-    
-}
-
 //超出时间限制 hhh 数组切片+ 排序 果然不行
 func maxSlidingWindow(_ nums: [Int], _ k: Int) -> [Int] {
     guard nums.count > 0 && k > 1 else { return nums }
@@ -30,18 +26,35 @@ func maxSlidingWindow(_ nums: [Int], _ k: Int) -> [Int] {
             maxArray.append(max)
         }
     }
-    
     return maxArray
 }
 
-//TODO: 双端队列
+//双端队列 https://github.com/soapyigu/LeetCode-Swift/blob/master/Array/SlidingWindowMaximum.swift
 func maxSlidingWindow2(_ nums: [Int], _ k: Int) -> [Int] {
-    guard nums.count > 0 && k > 1 else { return nums }
-    guard nums.count > k else { return [nums.sorted().last!] }
-    var maxArray: [Int] = []
-    return maxArray
+        var maxIdx = [Int]()
+        var res = [Int]()
+        
+        for i in 0..<nums.count {
+            while maxIdx.count > 0 && nums[maxIdx.last!] < nums[i] {
+                maxIdx.removeLast()
+            }
+            
+            maxIdx.append(i)
+            
+            if i >= k - 1 {
+                if maxIdx.first! + k == i {
+//                    maxIdx.removeFirst()//超出时间限制
+                    maxIdx = Array(maxIdx[1...])
+                }
+                
+                res.append(nums[maxIdx.first!])
+            }
+        }
+        
+        return res
 }
 
-maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3)
-
+//maxSlidingWindow2([1,3,-1,-3,5,3,6,7], 3)
+maxSlidingWindow2([7, 2, 4], 2)
+//maxSlidingWindow2([1,3,1,2,0,5], 3)
 //: [Next](@next)
