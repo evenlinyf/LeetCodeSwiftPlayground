@@ -31,27 +31,27 @@ func maxSlidingWindow(_ nums: [Int], _ k: Int) -> [Int] {
 
 //双端队列 https://github.com/soapyigu/LeetCode-Swift/blob/master/Array/SlidingWindowMaximum.swift
 func maxSlidingWindow2(_ nums: [Int], _ k: Int) -> [Int] {
-        var maxIdx = [Int]()
-        var res = [Int]()
-        
-        for i in 0..<nums.count {
-            while maxIdx.count > 0 && nums[maxIdx.last!] < nums[i] {
-                maxIdx.removeLast()
-            }
-            
-            maxIdx.append(i)
-            
-            if i >= k - 1 {
-                if maxIdx.first! + k == i {
-//                    maxIdx.removeFirst()//超出时间限制
-                    maxIdx = Array(maxIdx[1...])
-                }
-                
-                res.append(nums[maxIdx.first!])
-            }
+    var maxIdx = [Int]()
+    var res = [Int]()
+    
+    for i in 0..<nums.count {
+        while maxIdx.count > 0 && nums[maxIdx.last!] < nums[i] {
+            maxIdx.removeLast()
         }
         
-        return res
+        maxIdx.append(i)
+        
+        if i >= k - 1 {
+            if maxIdx.first! + k == i {
+//                    maxIdx.removeFirst()//超出时间限制
+                maxIdx = Array(maxIdx[1...])
+            }
+            
+            res.append(nums[maxIdx.first!])
+        }
+    }
+    
+    return res
 }
 
 //maxSlidingWindow2([1,3,-1,-3,5,3,6,7], 3)
