@@ -17,5 +17,6 @@
         <page name='232-implement-queue-using-stacks'/>
         <page name='703-KthLargest'/>
         <page name='239-sliding-window-maximum'/>
+        <page name='242-valid-anagram'/>
     </pages>
 </playground>
