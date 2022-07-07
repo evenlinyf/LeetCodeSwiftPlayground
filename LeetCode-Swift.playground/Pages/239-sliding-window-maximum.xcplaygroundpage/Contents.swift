@@ -30,6 +30,16 @@ func maxSlidingWindow(_ nums: [Int], _ k: Int) -> [Int] {
 }
 
 //双端队列 https://github.com/soapyigu/LeetCode-Swift/blob/master/Array/SlidingWindowMaximum.swift
+/**
+迭代数组
+维护一个窗口数组， 窗口对应的下标
+维护一个结果数组， 保存窗口数组中下标对应最大的值
+新入列的值如果大于窗口数组最后一个下标对应的值， 那么移除窗口数组中的最后一个下标
+k个或者k个之后的话
+如果下标数组中的第一个下标 + k == 迭代的下标， 说明第一个下标的值需要从数组中出列
+将窗口数组中的
+
+ */
 func maxSlidingWindow2(_ nums: [Int], _ k: Int) -> [Int] {
     var maxIdx = [Int]()
     var res = [Int]()
@@ -40,7 +50,6 @@ func maxSlidingWindow2(_ nums: [Int], _ k: Int) -> [Int] {
         }
         
         maxIdx.append(i)
-        
         if i >= k - 1 {
             if maxIdx.first! + k == i {
 //                    maxIdx.removeFirst()//超出时间限制
@@ -55,6 +64,6 @@ func maxSlidingWindow2(_ nums: [Int], _ k: Int) -> [Int] {
 }
 
 //maxSlidingWindow2([1,3,-1,-3,5,3,6,7], 3)
-maxSlidingWindow2([7, 2, 4], 2)
-//maxSlidingWindow2([1,3,1,2,0,5], 3)
+//maxSlidingWindow2([7, 2, 4], 2)
+maxSlidingWindow2([1,3,1,5,3,0,6], 3)
 //: [Next](@next)
