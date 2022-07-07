@@ -21,7 +21,7 @@ func isAnagram(_ s: String, _ t: String) -> Bool {
 //    return s.map{$0}.sorted() == t.map{$0}.sorted()
 }
 
-func isAnagramMapWay(_ s: String, _ t: String) -> Bool {
+func isAnagramTwoMapWay(_ s: String, _ t: String) -> Bool {
     var sMap: [Character: Int] = [:]
     var tMap: [Character: Int] = [:]
     s.forEach {sMap[$0] != nil ? (sMap[$0] = sMap[$0]! + 1) : (sMap[$0] = 1)}
@@ -29,23 +29,32 @@ func isAnagramMapWay(_ s: String, _ t: String) -> Bool {
     return sMap == tMap
 }
 
-// aacc ccac 有误
-//func isAnagramMapWay2(_ s: String, _ t: String) -> Bool {
-//    var map: [Character: Int] = [:]
-//    s.forEach {map[$0] != nil ? (map[$0] = map[$0]! + 1) : (map[$0] = 1)}
-//    for char in t {
-//        guard let count = map[char] else {
-//            return false
-//        }
-//        map[char] = count - 1
-//    }
-//    return map.values.reduce(0, {$0 + $1}) == 0
-//}
-
-func isAnagramHashWay(_ s: String, _ t: String) -> Bool {
-    return false
+func isAnagramOneMapWay(_ s: String, _ t: String) -> Bool {
+    guard s.count == t.count else { return false }
+    var map: [Character: Int] = [:]
+    for idx in s.indices {
+        let sc = s[idx]
+        if let count = map[sc] {
+            map[sc] = count + 1
+        } else {
+            map[sc] = 1
+        }
+        
+        let tc = t[idx]
+        if let tCount = map[tc] {
+            map[tc] = tCount - 1
+        } else {
+            map[tc] = -1
+        }
+    }
+    for value in map.values {
+        if value != 0 {
+            return false
+        }
+    }
+    return true
 }
 
-isAnagramMapWay2("anagram", "nagaram")
+isAnagramOneMapWay("anagram", "nagaram")
 
-isAnagramMapWay2("rat", "car")
+isAnagramOneMapWay("rat", "car")
