@@ -29,38 +29,45 @@
  著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 import Foundation
-//解答错误
+
+/** hahaha
+ 执行用时： 4828 ms, 在所有 Swift 提交中击败了5.04%的用户
+ 内存消耗：17.7 MB, 在所有 Swift 提交中击败了46.17%的用户
+ */
 func threeSum(_ nums: [Int]) -> [[Int]] {
     guard nums.count > 2 else { return [] }
     var result: [[Int]] = []
     for idx in 0..<nums.count {
         let curNum = nums[idx]
         let secNum: [Int] = Array(nums[0..<idx]) + Array(nums[(idx+1)...])
-        if let res = twoSumDic(secNum, (curNum * -1)) {
-            var arr = [curNum]
-            arr.append(contentsOf: res.map{secNum[$0]})
-            arr = arr.sorted()
-            if result.contains(arr) == false {
-                result.append(arr)
+        let res = twoSumDic(secNum, (curNum * -1))
+        if res.count > 0 {
+            for resi in res {
+                var arr = [curNum]
+                arr.append(contentsOf: resi.map{secNum[$0]})
+                arr = arr.sorted()
+                if result.contains(arr) == false {
+                    result.append(arr)
+                }
             }
         }
     }
     return result
 }
 
-//两数相加的结果只有一个， 对于多个的还没处理
-func twoSumDic(_ nums: [Int], _ target: Int) -> [Int]? {
+func twoSumDic(_ nums: [Int], _ target: Int) -> [[Int]] {
     var dic: [Int: Int] = [:]
+    var matched = [[Int]]()
     for i in 0..<nums.count {
         let num = nums[i]
         let value = target - num
         if let matchedIndex = dic[value] {
-            return [matchedIndex, i]
+            matched.append([matchedIndex, i])
         } else {
             dic[num] = i
         }
     }
-    return nil
+    return matched
 }
 
 //[[-4,0,4],[-4,1,3],[-3,-1,4],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
