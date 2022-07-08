@@ -15,12 +15,13 @@
  著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 import Foundation
-//排序法
+//排序法 20ms
 func isAnagram(_ s: String, _ t: String) -> Bool {
     return s.sorted() == t.sorted()
 //    return s.map{$0}.sorted() == t.map{$0}.sorted()
 }
 
+//20ms
 func isAnagramTwoMapWay(_ s: String, _ t: String) -> Bool {
     var sMap: [Character: Int] = [:]
     var tMap: [Character: Int] = [:]
@@ -29,6 +30,7 @@ func isAnagramTwoMapWay(_ s: String, _ t: String) -> Bool {
     return sMap == tMap
 }
 
+//16ms
 func isAnagramOneMapWay(_ s: String, _ t: String) -> Bool {
     guard s.count == t.count else { return false }
     var map: [Character: Int] = [:]
@@ -55,6 +57,28 @@ func isAnagramOneMapWay(_ s: String, _ t: String) -> Bool {
     return true
 }
 
-isAnagramOneMapWay("anagram", "nagaram")
+//4ms
+func isAnagramArrayWay(_ s: String, _ t: String) -> Bool {
+    guard s.count == t.count else { return false }
+    var arr = Array(repeating: 0, count: 26)
+    for char in s.unicodeScalars {
+        let idx = Int(char.value - "a".unicodeScalars.first!.value)
+        arr[idx] += 1
+    }
+    
+    for char in t.unicodeScalars {
+        let idx = Int(char.value - "a".unicodeScalars.first!.value)
+        arr[idx] -= 1
+        if arr[idx] < 0 { return false }
+    }
+    print(arr)
+    return true
+}
 
-isAnagramOneMapWay("rat", "car")
+//isAnagramOneMapWay("anagram", "nagaram")
+//
+//isAnagramOneMapWay("rat", "car")
+
+isAnagramArrayWay("anagram", "nagaram")
+
+isAnagramArrayWay("rat", "car")

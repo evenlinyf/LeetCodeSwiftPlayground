@@ -18,5 +18,6 @@
         <page name='703-KthLargest'/>
         <page name='239-sliding-window-maximum'/>
         <page name='242-valid-anagram'/>
+        <page name='15-3sum'/>
     </pages>
 </playground>
