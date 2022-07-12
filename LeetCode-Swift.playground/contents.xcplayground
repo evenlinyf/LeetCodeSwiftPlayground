@@ -19,5 +19,6 @@
         <page name='239-sliding-window-maximum'/>
         <page name='242-valid-anagram'/>
         <page name='15-3sum'/>
+        <page name='98-validbst'/>
     </pages>
 </playground>
