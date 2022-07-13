@@ -32,6 +32,7 @@ var values: [Int] = []
 
 //[5,4,6,null,null,3,7]
 //[2,2,2]
+// 36ms
 func isValidBST(_ root: TreeNode?) -> Bool {
     guard let root = root else { return true }
     inOrderTree(root)
@@ -44,5 +45,19 @@ func inOrderTree(_ root: TreeNode?) {
     values.append(root.val)
     inOrderTree(root.right)
 }
+
+
+
+//32ms beat 99.18%
+//14.7MB beat 29.22%
+func isValidBinarySearchTree(_ root: TreeNode?) -> Bool {
+    func isBST(_ node: TreeNode?, _ min: Int, _ max: Int) -> Bool {
+        guard let node = node else { return true }
+        guard node.val < max && node.val > min else { return false }
+        return isBST(node.left, min, node.val) && isBST(node.right, node.val, max)
+    }
+    return isBST(root, Int.min, Int.max)
+}
+
 
 
