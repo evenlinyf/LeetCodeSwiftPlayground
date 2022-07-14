@@ -80,3 +80,4 @@ let empty = queue.empty()
  * let ret_3: Int = obj.peek()
  * let ret_4: Bool = obj.empty()
  */
+

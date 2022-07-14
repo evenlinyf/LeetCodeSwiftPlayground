@@ -12,36 +12,6 @@ import UIKit
 
 //链表相加
 
-class ListNode {
-    var val: Int
-    var next: ListNode?
-    
-    init() {
-        self.val = 0
-    }
-    
-    convenience init(_ val: Int) {
-        self.init()
-        self.val = val
-    }
-    
-    convenience init(_ val: Int, _ next: ListNode?) {
-        self.init()
-        self.val = val
-        self.next = next
-    }
-    
-    func description() -> String {
-        var node: ListNode? = self
-        var string = ""
-        while node?.next != nil {
-            string = String(node!.val) + string
-            node = node!.next
-        }
-        return string
-    }
-}
-
 func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         if l1 == nil || l2 == nil {
             return l1 ?? l2

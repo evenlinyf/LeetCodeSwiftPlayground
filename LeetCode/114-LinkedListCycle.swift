@@ -1,19 +1,8 @@
-//: [Previous](@previous)
 //https://leetcode.cn/problems/linked-list-cycle/
 import Foundation
 
-class ListNode {
-    
-    var val: Int
-    var next: ListNode?
-    
-    init(val: Int = 0, next: ListNode? = nil) {
-        self.val = val
-        self.next = next
-    }
-}
-
 class LinkedListCycle {
+    
     func hasCycle(_ head: ListNode?) -> Bool {
         guard var head = head else { return false }
         var nodes: [ListNode] = [head]

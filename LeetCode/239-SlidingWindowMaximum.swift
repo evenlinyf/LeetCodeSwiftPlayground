@@ -67,3 +67,4 @@ func maxSlidingWindow2(_ nums: [Int], _ k: Int) -> [Int] {
 //maxSlidingWindow2([7, 2, 4], 2)
 maxSlidingWindow2([1,3,1,5,3,0,6], 3)
 //: [Next](@next)
+

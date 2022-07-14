@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:DataStruct"
+      name = "DataStruct">
+      <FileRef
+         location = "group:TreeNode.swift">
+      </FileRef>
+      <FileRef
+         location = "group:ListNode.swift">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:LeetCode"
+      name = "LeetCode">
+      <FileRef
+         location = "group:1-TwoSum.swift">
+      </FileRef>
+      <FileRef
+         location = "group:2-AddTwoNumbers.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/holla/Documents/LeetCodeSwiftPlayground/LeetCode/3-LongestSubstringLength.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/holla/Documents/LeetCodeSwiftPlayground/LeetCode/4-MedianOfTwoSortedArrays.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/holla/Documents/LeetCodeSwiftPlayground/LeetCode/5-LongestPalindromicSubstring.swift">
+      </FileRef>
+      <FileRef
+         location = "group:6-ZigZagConversion.swift">
+      </FileRef>
+      <FileRef
+         location = "group:7-ReverseInteger.swift">
+      </FileRef>
+      <FileRef
+         location = "group:9-PanlindromeNumber.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/holla/Documents/LeetCodeSwiftPlayground/LeetCode/15-3Sum.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/holla/Documents/LeetCodeSwiftPlayground/LeetCode/20-ValidParentheses.swift">
+      </FileRef>
+      <FileRef
+         location = "group:24-SwapNodesInPairs.swift">
+      </FileRef>
+      <FileRef
+         location = "group:98-ValidBST.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/holla/Documents/LeetCodeSwiftPlayground/LeetCode/114-LinkedListCycle.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/holla/Documents/LeetCodeSwiftPlayground/LeetCode/206-ReverseLinkedList.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/holla/Documents/LeetCodeSwiftPlayground/LeetCode/232-ImpQueueUsingStack.swift">
+      </FileRef>
+      <FileRef
+         location = "group:235-LowestCommonAncestor.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/holla/Documents/LeetCodeSwiftPlayground/LeetCode/239-SlidingWindowMaximum.swift">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/holla/Documents/LeetCodeSwiftPlayground/LeetCode/242-ValidAnagram.swift">
+      </FileRef>
+      <FileRef
+         location = "group:703-KthLargest.swift">
+      </FileRef>
+   </Group>
+</Workspace>
