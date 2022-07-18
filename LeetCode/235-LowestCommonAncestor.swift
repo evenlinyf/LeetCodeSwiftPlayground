@@ -8,9 +8,19 @@
  著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      
  */
+
 import Foundation
 
-//TODO: lowestCommonAncestor
 func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
-
+    guard let root = root, let p = p, let q = q else { return nil }
+    //如果两个节点的值都小于根节点的值， 那么公共祖先就在左子树中
+    if p.val < root.val && q.val < root.val {
+        return lowestCommonAncestor(root.left, p, q)
+    }
+    //如果两个节点的值都大于根节点的值， 那么公共祖先就在右子树中
+    if p.val > root.val && q.val > root.val {
+        return lowestCommonAncestor(root.right, p, q)
+    }
+    //如果p和q的节点值一个大于根节点一个小于根节点， 说明根节点就是左右子树的公共祖先
+    return root
 }
